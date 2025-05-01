@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-pvc
+  namespace: projet-3k8s
+spec:
+  accessModes:
+    - ReadWriteOnce  # Accès en lecture/écriture par un seul nœud
+  resources:
+    requests:
+      storage: 1Gi  # Demande 1Gi de stockage
+  storageClassName: standard  # Laisser le provisioner gérer le stockage

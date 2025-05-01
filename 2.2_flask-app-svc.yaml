@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-app-svc
+  namespace: projet-3k8s
+spec:
+  selector:
+    app: flask-app
+  type: NodePort  # Permet d'exposer le service à l'extérieur du cluster
+  ports:
+    - protocol: TCP
+      port: 80        # Port exposé sur le service
+      targetPort: 5000  # Port du conteneur Flask
+      nodePort: 30080   # Port accessible sur le nœud (doit être entre 30000-32767)
